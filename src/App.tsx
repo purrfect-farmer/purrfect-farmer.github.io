@@ -1,3 +1,4 @@
+import type { Component } from "solid-js";
 import Cloud from "./partials/Cloud";
 import Farmers from "./partials/Farmers";
 import Features from "./partials/Features";
@@ -9,7 +10,7 @@ import SidePanel from "./partials/SidePanel";
 import Toolbar from "./partials/Toolbar";
 import Whiskers from "./partials/Whiskers";
 
-function App() {
+const App: Component = () => {
   return (
     <>
       <Hero />
@@ -24,6 +25,6 @@ function App() {
       <Footer />
     </>
   );
-}
+};
 
 export default App;

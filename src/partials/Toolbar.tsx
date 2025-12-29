@@ -5,16 +5,19 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Toolbar() {
   return (
-    <ContainerGrid className="mx-auto p-10 gap-10">
-      <div className="flex flex-col gap-2">
+    <ContainerGrid class="mx-auto p-10 gap-10">
+      <div class="flex flex-col gap-2">
+        {/* Heading */}
         <SectionHeading>Toolbar</SectionHeading>
-        <p>Auto-Clicker, fullscreen and more tools within the toolbar.</p>
 
+        {/* Description */}
+        <p>Auto-Clicker, fullscreen and more tools within the toolbar.</p>
         <p>
           The toolbar complements the farmer, it can be used for airdrops
           without a dedicated farmer.
         </p>
 
+        {/* Features List */}
         <CheckList
           items={[
             "Auto Clicker",
@@ -26,10 +29,11 @@ export default function Toolbar() {
         />
       </div>
 
+      {/* Image of Toolbar */}
       <div>
         <img
           src={ToolbarImage}
-          className="ring-4 ring-orange-300 rounded-sm w-[640px]"
+          class="ring-4 ring-orange-300 rounded-sm w-160"
         />
       </div>
     </ContainerGrid>

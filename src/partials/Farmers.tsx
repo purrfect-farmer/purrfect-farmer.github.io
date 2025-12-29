@@ -5,9 +5,12 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Farmers() {
   return (
-    <ContainerGrid className="mx-auto p-10 gap-10">
-      <div className="flex flex-col gap-2 lg:col-start-2">
+    <ContainerGrid class="mx-auto p-10 gap-10">
+      <div class="flex flex-col gap-2 lg:col-start-2">
+        {/* Heading */}
         <SectionHeading>Farmers</SectionHeading>
+
+        {/* Description */}
         <p>
           20+ dedicated Farmers included, with support for running multiple
           farmers at once.
@@ -18,6 +21,7 @@ export default function Farmers() {
           everything down to the last setting.
         </p>
 
+        {/* Features List */}
         <CheckList
           items={[
             "Multiple Tabs",
@@ -30,8 +34,9 @@ export default function Farmers() {
         />
       </div>
 
-      <div className="lg:row-start-1 lg:col-start-1">
-        <img src={FarmersImage} className="w-[640px]" />
+      {/* Image of Farmers */}
+      <div class="lg:row-start-1 lg:col-start-1">
+        <img src={FarmersImage} class="w-160" />
       </div>
     </ContainerGrid>
   );

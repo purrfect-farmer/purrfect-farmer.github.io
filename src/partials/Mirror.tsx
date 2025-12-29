@@ -2,14 +2,17 @@ import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
 import LinkButton from "@/components/LinkButton";
 import MirrorImage from "@/assets/images/mirror.png?format=webp";
-import { HiOutlineArrowDownCircle } from "react-icons/hi2";
 import SectionHeading from "@/components/SectionHeading";
+import { HiOutlineArrowDownCircle } from "solid-icons/hi";
 
 export default function Mirror() {
   return (
-    <ContainerGrid className="mx-auto p-10 gap-10">
-      <div className="flex flex-col gap-2">
+    <ContainerGrid class="mx-auto p-10 gap-10">
+      <div class="flex flex-col gap-2">
+        {/* Heading */}
         <SectionHeading>Mirror</SectionHeading>
+
+        {/* Description */}
         <p>
           Sync commands across multiple accounts, events are dispatched
           seamlessly.
@@ -25,6 +28,7 @@ export default function Mirror() {
           and more among multiple accounts.
         </p>
 
+        {/* Features List */}
         <CheckList
           items={[
             "Toggle Mirroring",
@@ -34,6 +38,7 @@ export default function Mirror() {
           ]}
         />
 
+        {/* Download Button */}
         <div>
           <LinkButton
             icon={HiOutlineArrowDownCircle}
@@ -44,10 +49,11 @@ export default function Mirror() {
         </div>
       </div>
 
+      {/* Image of Mirror */}
       <div>
         <img
           src={MirrorImage}
-          className="ring-4 ring-orange-300 rounded-sm w-[640px]"
+          class="ring-4 ring-orange-300 rounded-sm w-160"
         />
       </div>
     </ContainerGrid>

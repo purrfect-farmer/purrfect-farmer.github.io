@@ -5,10 +5,12 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Cloud() {
   return (
-    <ContainerGrid className="mx-auto p-10 gap-10">
-      <div className="flex flex-col gap-2">
+    <ContainerGrid class="mx-auto p-10 gap-10">
+      <div class="flex flex-col gap-2">
+        {/* Heading */}
         <SectionHeading>Cloud</SectionHeading>
 
+        {/* Description */}
         <p>
           Automated Cloud Farming for Mini-Apps, sync once and let the Cloud
           handle the rest.
@@ -24,6 +26,7 @@ export default function Cloud() {
           dedicated Proxy IP and Cloud Sessions to persist farming.
         </p>
 
+        {/* Features List */}
         <CheckList
           items={[
             "Periodic Tasks",
@@ -35,8 +38,9 @@ export default function Cloud() {
         />
       </div>
 
+      {/* Image of Cloud */}
       <div>
-        <img src={CloudImage} className="w-[640px]" />
+        <img src={CloudImage} class="w-160" />
       </div>
     </ContainerGrid>
   );

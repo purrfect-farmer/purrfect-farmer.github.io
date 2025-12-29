@@ -1,19 +1,23 @@
 import { cn } from "@/lib/utils";
 import WhiskersImage from "@/assets/images/whiskers.png?format=webp";
 import LinkButton from "@/components/LinkButton";
-import { HiOutlineArrowDownCircle } from "react-icons/hi2";
 import SectionHeading from "@/components/SectionHeading";
+import { HiOutlineArrowDownCircle } from "solid-icons/hi";
+
 export default function Whiskers() {
   return (
-    <section className="p-10 flex flex-col gap-10">
+    <section class="p-10 flex flex-col gap-10">
       <div
-        className={cn(
+        class={cn(
           "max-w-3xl mx-auto",
           "flex flex-col justify-center items-center gap-4",
           "text-center"
         )}
       >
+        {/* Heading */}
         <SectionHeading>Whiskers</SectionHeading>
+
+        {/* Description */}
         <p>
           Purrfect Whiskers is a desktop application designed to efficiently
           manage multiple instances of the chrome extension. Launch several
@@ -21,6 +25,7 @@ export default function Whiskers() {
           streamline your automation workflow.
         </p>
 
+        {/* Link to download Whiskers */}
         <LinkButton
           icon={HiOutlineArrowDownCircle}
           href={import.meta.env.VITE_APP_WHISKERS_GITHUB_RELEASE}
@@ -28,11 +33,10 @@ export default function Whiskers() {
           Get Whiskers
         </LinkButton>
       </div>
-      <div className="max-w-5xl mx-auto">
-        <img
-          src={WhiskersImage}
-          className="ring-4 ring-orange-300 rounded-sm"
-        />
+
+      {/* Image of Whiskers */}
+      <div class="max-w-5xl mx-auto">
+        <img src={WhiskersImage} class="ring-4 ring-orange-300 rounded-sm" />
       </div>
     </section>
   );
