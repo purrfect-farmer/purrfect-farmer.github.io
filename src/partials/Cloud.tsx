@@ -12,18 +12,18 @@ export default function Cloud() {
 
         {/* Description */}
         <p>
-          Automated Cloud Farming for Mini-Apps, sync once and let the Cloud
+          Automated cloud farming for Mini-Apps—sync once and let the cloud
           handle the rest.
         </p>
 
         <p>
-          Purrfect Cloud requires a monthly subscription when using the Official
-          Servers.
+          Purrfect Cloud requires a monthly subscription when using the official
+          servers.
         </p>
 
         <p>
-          Every Cloud User gets full access to all available Cloud Farmers,
-          dedicated Proxy IP and Cloud Sessions to persist farming.
+          Every cloud user gets full access to all available cloud farmers, a
+          dedicated proxy IP, and cloud sessions to persist farming.
         </p>
 
         {/* Features List */}

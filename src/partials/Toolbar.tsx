@@ -11,9 +11,9 @@ export default function Toolbar() {
         <SectionHeading>Toolbar</SectionHeading>
 
         {/* Description */}
-        <p>Auto-Clicker, fullscreen and more tools within the toolbar.</p>
+        <p>Auto-Clicker, fullscreen, and more tools within the toolbar.</p>
         <p>
-          The toolbar complements the farmer, it can be used for airdrops
+          The toolbar complements the farmer and can be used for airdrops
           without a dedicated farmer.
         </p>
 

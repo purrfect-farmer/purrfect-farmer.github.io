@@ -12,16 +12,16 @@ export default function Mobile() {
 
         {/* Description */}
         <p>
-          Purrfect Farmer can also be installed on Mobile Browsers with Chrome
-          Extensions support.
+          Purrfect Farmer can also be installed on mobile browsers with Chrome
+          extension support.
         </p>
 
         <p>
-          Development of the extension has always taken a mobile-first approach.
+          The extension has always been developed with a mobile-first approach.
         </p>
 
         <p>
-          It can run on even the most basic device, allowing you to farm on the
+          It can run on even the most basic devices, allowing you to farm on the
           go.
         </p>
 

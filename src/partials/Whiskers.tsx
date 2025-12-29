@@ -20,7 +20,7 @@ export default function Whiskers() {
         {/* Description */}
         <p>
           Purrfect Whiskers is a desktop application designed to efficiently
-          manage multiple instances of the chrome extension. Launch several
+          manage multiple instances of the Chrome extension. Launch several
           instances side by side, organize them in rows or columns, and
           streamline your automation workflow.
         </p>

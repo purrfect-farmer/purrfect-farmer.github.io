@@ -12,10 +12,10 @@ export default function SidePanel() {
 
         {/* Description */}
         <p>
-          Enabling the farmer inside the side-panel allows you to farm while
-          doing other tasks.
+          Enable the farmer inside the side panel to farm while doing other
+          tasks.
         </p>
-        <p>No need to switch between windows, as it works across all tabs.</p>
+        <p>No need to switch between windows—it works across all tabs.</p>
 
         {/* Features List */}
         <CheckList items={["Toggle Side Panel", "Configurable Window Mode"]} />

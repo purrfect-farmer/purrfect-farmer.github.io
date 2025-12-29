@@ -21,7 +21,7 @@ export default function Hero() {
 
           {/* Description */}
           <p class="font-thin max-lg:max-w-96 text-center text-2xl lg:text-3xl">
-            Automate Telegram Mini-Apps easily with an advance tool.
+            Automate Telegram Mini-Apps easily with an advanced tool.
           </p>
 
           {/* Buttons */}

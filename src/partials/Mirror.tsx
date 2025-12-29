@@ -24,8 +24,8 @@ export default function Mirror() {
         </p>
 
         <p>
-          Mirror allows you to e.g synchronize settings, start or stop farming
-          and more among multiple accounts.
+          Mirror allows you to, for example, synchronize settings, start or stop
+          farming, and more across multiple accounts.
         </p>
 
         {/* Features List */}

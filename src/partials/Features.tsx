@@ -15,8 +15,8 @@ export default function Features() {
 
       {/* Description */}
       <p>
-        Purrfect Farmer is an advance Telegram Mini-Apps automation tool, it's
-        packed with numerous features that makes farming airdrops easy.
+        Purrfect Farmer is an advanced Telegram Mini-Apps automation tool. It's
+        packed with numerous features that make farming airdrops easy.
       </p>
     </div>
   );

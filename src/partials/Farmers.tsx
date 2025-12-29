@@ -17,7 +17,7 @@ export default function Farmers() {
         </p>
 
         <p>
-          Ability to choose between session or web mode for farming, configure
+          Choose between session or web mode for farming, and configure
           everything down to the last setting.
         </p>
 
