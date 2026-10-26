@@ -1,8 +1,9 @@
 import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
 import LinkButton from "@/components/LinkButton";
-import MirrorImage from "@/assets/images/mirror.png?format=webp";
+import MirrorImage from "@/assets/images/mirror.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 import { HiOutlineArrowDownCircle } from "solid-icons/hi";
 
 export default function Mirror() {
@@ -51,8 +52,9 @@ export default function Mirror() {
 
       {/* Image of Mirror */}
       <div>
-        <img
-          src={MirrorImage}
+        <SiteImage
+          image={MirrorImage}
+          alt="Purrfect Mirror Server"
           class="ring-4 ring-orange-300 rounded-sm w-160"
         />
       </div>

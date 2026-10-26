@@ -1,7 +1,8 @@
 import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
-import MobileImage from "@/assets/images/mobile.png?format=webp";
+import MobileImage from "@/assets/images/mobile.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 
 export default function Mobile() {
   return (
@@ -31,7 +32,7 @@ export default function Mobile() {
 
       {/* Image of Mobile */}
       <div class="lg:row-start-1 lg:col-start-1">
-        <img src={MobileImage} />
+        <SiteImage image={MobileImage} alt="Purrfect Farmer on a phone" />
       </div>
     </ContainerGrid>
   );

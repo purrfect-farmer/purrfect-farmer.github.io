@@ -1,7 +1,8 @@
 import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
-import SidePanelImage from "@/assets/images/side-panel.png?format=webp";
+import SidePanelImage from "@/assets/images/side-panel.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 
 export default function SidePanel() {
   return (
@@ -23,8 +24,9 @@ export default function SidePanel() {
 
       {/* Image of Side Panel */}
       <div class="lg:row-start-1 lg:col-start-1">
-        <img
-          src={SidePanelImage}
+        <SiteImage
+          image={SidePanelImage}
+          alt="Purrfect Farmer in the browser side panel"
           class="ring-4 ring-orange-300 rounded-sm w-160"
         />
       </div>

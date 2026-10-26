@@ -1,7 +1,8 @@
 import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
-import ToolbarImage from "@/assets/images/toolbar.png?format=webp";
+import ToolbarImage from "@/assets/images/toolbar.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 
 export default function Toolbar() {
   return (
@@ -31,8 +32,9 @@ export default function Toolbar() {
 
       {/* Image of Toolbar */}
       <div>
-        <img
-          src={ToolbarImage}
+        <SiteImage
+          image={ToolbarImage}
+          alt="The Purrfect Farmer toolbar"
           class="ring-4 ring-orange-300 rounded-sm w-160"
         />
       </div>

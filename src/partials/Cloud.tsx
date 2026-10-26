@@ -1,7 +1,8 @@
 import CheckList from "@/components/CheckList";
-import CloudImage from "@/assets/images/cloud.png?format=webp";
+import CloudImage from "@/assets/images/cloud.png?format=webp&as=meta:src;width;height";
 import ContainerGrid from "@/components/ContainerGrid";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 
 export default function Cloud() {
   return (
@@ -40,7 +41,7 @@ export default function Cloud() {
 
       {/* Image of Cloud */}
       <div>
-        <img src={CloudImage} class="w-160" />
+        <SiteImage image={CloudImage} alt="Purrfect Cloud" class="w-160" />
       </div>
     </ContainerGrid>
   );

@@ -1,7 +1,8 @@
 import CheckList from "@/components/CheckList";
 import ContainerGrid from "@/components/ContainerGrid";
-import FarmersImage from "@/assets/images/farmers.png?format=webp";
+import FarmersImage from "@/assets/images/farmers.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 
 export default function Farmers() {
   return (
@@ -36,7 +37,11 @@ export default function Farmers() {
 
       {/* Image of Farmers */}
       <div class="lg:row-start-1 lg:col-start-1">
-        <img src={FarmersImage} class="w-160" />
+        <SiteImage
+          image={FarmersImage}
+          alt="The farmers list in Purrfect Farmer"
+          class="w-160"
+        />
       </div>
     </ContainerGrid>
   );

@@ -7,15 +7,15 @@ interface CheckListProps {
 
 export default function CheckList(props: CheckListProps) {
   return (
-    <div class="flex flex-col gap-2">
+    <ul class="flex flex-col gap-2">
       <For each={props.items}>
         {(item) => (
-          <div class="flex items-center gap-2">
+          <li class="flex items-center gap-2">
             <HiSolidCheckCircle class="text-orange-500 size-5 shrink-0" />
-            <h4 class="font-bold text-orange-800 grow">{item}</h4>
-          </div>
+            <span class="font-bold text-orange-800 grow min-w-0">{item}</span>
+          </li>
         )}
       </For>
-    </div>
+    </ul>
   );
 }

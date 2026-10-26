@@ -1,5 +1,6 @@
 import { splitProps, type ComponentProps } from "solid-js";
-import AppIcon from "@/assets/images/icon-unwrapped-cropped.png?format=webp&h=480";
+import AppIcon from "@/assets/images/icon-unwrapped-cropped.png?format=webp&h=480&as=meta:src;width;height";
+import SiteImage from "@/components/SiteImage";
 import { cn } from "@/lib/utils";
 
 import {
@@ -22,13 +23,14 @@ const FooterButton = (props: FooterButtonProps) => {
 
   return (
     <a
+      aria-label={others.title}
       {...others}
       target="_blank"
       class={cn(
         "bg-neutral-800",
         "p-3 rounded-full",
         "inline-flex items-center justify-center gap-2",
-        local.class
+        local.class,
       )}
     >
       <Dynamic component={local.icon} class="text-orange-500 size-4" />
@@ -40,13 +42,13 @@ export default function Footer() {
   return (
     <div class="p-4">
       <div class="max-w-5xl mx-auto flex flex-col gap-4">
-        <img src={AppIcon} class="h-28 mx-auto" />
+        <SiteImage image={AppIcon} alt="" class="h-28 w-auto mx-auto" />
 
         {/* Footer Buttons */}
         <div
           class={cn(
             "flex justify-center items-center",
-            "flex-wrap gap-2 bg-black p-2 rounded-full mx-auto"
+            "flex-wrap gap-2 bg-black p-2 rounded-full mx-auto",
           )}
         >
           {/* Get Extension */}
@@ -86,7 +88,7 @@ export default function Footer() {
         </div>
 
         {/* Credits */}
-        <p class="text-center text-sm text-neutral-600">
+        <p class="text-center text-sm">
           Made with care by{" "}
           <a
             href={import.meta.env.VITE_APP_DEV_PORTFOLIO}

@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
-import WhiskersImage from "@/assets/images/whiskers.png?format=webp";
+import WhiskersImage from "@/assets/images/whiskers.png?format=webp&as=meta:src;width;height";
 import LinkButton from "@/components/LinkButton";
 import SectionHeading from "@/components/SectionHeading";
+import SiteImage from "@/components/SiteImage";
 import { HiOutlineArrowDownCircle } from "solid-icons/hi";
 
 export default function Whiskers() {
@@ -11,7 +12,7 @@ export default function Whiskers() {
         class={cn(
           "max-w-3xl mx-auto",
           "flex flex-col justify-center items-center gap-4",
-          "text-center"
+          "text-center",
         )}
       >
         {/* Heading */}
@@ -26,17 +27,18 @@ export default function Whiskers() {
         </p>
 
         {/* Link to download Whiskers */}
-        <LinkButton
-          icon={HiOutlineArrowDownCircle}
-          href={import.meta.env.VITE_APP_WHISKERS_GITHUB_RELEASE}
-        >
-          Get Whiskers
+        <LinkButton icon={HiOutlineArrowDownCircle} href="#download">
+          Download Whiskers
         </LinkButton>
       </div>
 
       {/* Image of Whiskers */}
       <div class="max-w-5xl mx-auto">
-        <img src={WhiskersImage} class="ring-4 ring-orange-300 rounded-sm" />
+        <SiteImage
+          image={WhiskersImage}
+          alt="Purrfect Whiskers running many accounts side by side"
+          class="ring-4 ring-orange-300 rounded-sm"
+        />
       </div>
     </section>
   );

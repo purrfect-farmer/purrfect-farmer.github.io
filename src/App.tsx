@@ -1,5 +1,6 @@
 import type { Component } from "solid-js";
 import Cloud from "./partials/Cloud";
+import Download from "./partials/Download";
 import Farmers from "./partials/Farmers";
 import Features from "./partials/Features";
 import Footer from "./partials/Footer";
@@ -22,6 +23,7 @@ const App: Component = () => {
       <Mobile />
       <Cloud />
       <Whiskers />
+      <Download />
       <Footer />
     </>
   );
