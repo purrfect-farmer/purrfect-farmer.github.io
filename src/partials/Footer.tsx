@@ -84,6 +84,19 @@ export default function Footer() {
             title="GitHub"
           />
         </div>
+
+        {/* Credits */}
+        <p class="text-center text-sm text-neutral-600">
+          Made with care by{" "}
+          <a
+            href={import.meta.env.VITE_APP_DEV_PORTFOLIO}
+            target="_blank"
+            class="font-bold text-orange-500"
+          >
+            {import.meta.env.VITE_APP_DEV_NAME}
+          </a>
+        </p>
+
         <div class="text-center">&copy; Purrfect Farmer</div>
       </div>
     </div>
