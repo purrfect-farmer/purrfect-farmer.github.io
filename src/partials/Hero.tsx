@@ -1,7 +1,9 @@
+import AppleSiliconNote from "@/components/AppleSiliconNote";
 import AppIcon from "@/assets/images/icon-unwrapped-cropped.png?format=webp&h=480&as=meta:src;width;height";
-import ContainerGrid from "@/components/ContainerGrid";
 import HeroImage from "@/assets/images/hero.png?format=webp&as=meta:src;width;height";
 import LinkButton from "@/components/LinkButton";
+import ReleaseDetail from "@/components/ReleaseDetail";
+import Section, { SECTION_PADDING } from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SiteImage from "@/components/SiteImage";
 import useWhiskersDownloads, {
@@ -23,9 +25,9 @@ import {
 } from "solid-icons/fa";
 import { BsMouse } from "solid-icons/bs";
 import { Show } from "solid-js";
-import { Dynamic } from "solid-js/web";
 import { cn } from "@/lib/utils";
-import { isDirectDownload } from "@/lib/releases";
+import { IS_WHISKERS } from "@/lib/client";
+import { Anchor, hrefOf } from "@/lib/anchors";
 
 const HeroButton = LinkButton;
 
@@ -48,37 +50,26 @@ function WhiskersDownloadButton(props: { platform: DesktopPlatform }) {
 
   return (
     <div class="flex flex-col items-center gap-2 w-fit max-w-full">
-      <a
+      <LinkButton
+        intent="primary"
+        size="lg"
+        icon={PLATFORM_ICONS[props.platform]}
         href={href()}
-        target={isDirectDownload(href()) ? undefined : "_blank"}
-        class={cn(
-          "flex items-center justify-center gap-2 min-w-0",
-          "px-6 py-3 rounded-full",
-          "bg-orange-500 text-white font-bold text-lg text-center",
-        )}
       >
-        <Dynamic
-          component={PLATFORM_ICONS[props.platform]}
-          class="size-6 shrink-0"
-        />
-        <span class="min-w-0">
-          Download Whiskers for {PLATFORM_NAMES[props.platform]}
-        </span>
-      </a>
+        Download Whiskers for {PLATFORM_NAMES[props.platform]}
+      </LinkButton>
 
       {/* What Whiskers is, with its version and size */}
-      <p class="min-h-5 w-0 min-w-full text-sm text-center text-balance">
+      <p class="w-0 min-w-full text-sm text-center text-balance">
         The desktop app for running many accounts side by side
       </p>
-      <p class="min-h-5 text-sm text-center">{whiskers.detailOf(kind())}</p>
+      <ReleaseDetail>{whiskers.detailOf(kind())}</ReleaseDetail>
 
       {/* Apple Silicon Note */}
       <Show
         when={props.platform === Platform.MAC && whiskers.isAppleSiliconOnly()}
       >
-        <p class="text-sm text-center font-bold text-orange-800">
-          For Apple Silicon Macs (M1 or newer)
-        </p>
+        <AppleSiliconNote />
       </Show>
     </div>
   );
@@ -87,11 +78,11 @@ function WhiskersDownloadButton(props: { platform: DesktopPlatform }) {
 export default function Hero() {
   return (
     <div class="flex flex-col min-h-dvh">
-      <ContainerGrid class="grow">
+      <Section layout="grid" spaced={false} class="grow">
         <div
           class={cn(
             "flex flex-col gap-4 items-center justify-center",
-            "px-4 py-10 sm:p-10",
+            SECTION_PADDING,
           )}
         >
           {/* App Icon */}
@@ -113,16 +104,27 @@ export default function Hero() {
           </p>
 
           {/* Download for this computer */}
-          <Show when={isDesktopPlatform(CURRENT_PLATFORM) && CURRENT_PLATFORM}>
+          <Show
+            when={
+              !IS_WHISKERS &&
+              isDesktopPlatform(CURRENT_PLATFORM) &&
+              CURRENT_PLATFORM
+            }
+          >
             {(platform) => <WhiskersDownloadButton platform={platform()} />}
           </Show>
 
           {/* Buttons */}
           <div class="flex flex-wrap justify-center gap-2">
             {/* Get Extension */}
-            <HeroButton icon={FaBrandsChrome} href="#download">
-              Get Extension
-            </HeroButton>
+            <Show when={!IS_WHISKERS}>
+              <HeroButton
+                icon={FaBrandsChrome}
+                href={hrefOf(Anchor.DOWNLOAD_EXTENSION)}
+              >
+                Get Extension
+              </HeroButton>
+            </Show>
 
             {/* Source Codes */}
             <HeroButton
@@ -134,8 +136,11 @@ export default function Hero() {
           </div>
 
           {/* Other Platforms */}
-          <Show when={isDesktopPlatform(CURRENT_PLATFORM)}>
-            <a href="#download" class="text-sm font-bold text-orange-800">
+          <Show when={!IS_WHISKERS && isDesktopPlatform(CURRENT_PLATFORM)}>
+            <a
+              href={hrefOf(Anchor.DOWNLOAD_WHISKERS)}
+              class="text-sm font-bold text-orange-800"
+            >
               Other platforms
             </a>
           </Show>
@@ -153,7 +158,7 @@ export default function Hero() {
             />
           </div>
         </div>
-      </ContainerGrid>
+      </Section>
 
       {/* Scroll Down Indicator */}
       <div class="p-10 flex justify-center shrink-0">

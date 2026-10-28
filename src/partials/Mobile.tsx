@@ -1,39 +1,36 @@
 import CheckList from "@/components/CheckList";
-import ContainerGrid from "@/components/ContainerGrid";
+import FeatureSection from "@/components/FeatureSection";
 import MobileImage from "@/assets/images/mobile.png?format=webp&as=meta:src;width;height";
 import SectionHeading from "@/components/SectionHeading";
 import SiteImage from "@/components/SiteImage";
 
 export default function Mobile() {
   return (
-    <ContainerGrid class="mx-auto p-10 gap-10">
-      <div class="flex flex-col justify-center gap-2 lg:col-start-2">
-        {/* Heading */}
-        <SectionHeading>Mobile</SectionHeading>
+    <FeatureSection
+      reversed
+      contentClass="justify-center"
+      media={<SiteImage image={MobileImage} alt="Purrfect Farmer on a phone" />}
+    >
+      {/* Heading */}
+      <SectionHeading>Mobile</SectionHeading>
 
-        {/* Description */}
-        <p>
-          Purrfect Farmer can also be installed on mobile browsers with Chrome
-          extension support.
-        </p>
+      {/* Description */}
+      <p>
+        Purrfect Farmer can also be installed on mobile browsers with Chrome
+        extension support.
+      </p>
 
-        <p>
-          The extension has always been developed with a mobile-first approach.
-        </p>
+      <p>
+        The extension has always been developed with a mobile-first approach.
+      </p>
 
-        <p>
-          It can run on even the most basic devices, allowing you to farm on the
-          go.
-        </p>
+      <p>
+        It can run on even the most basic devices, allowing you to farm on the
+        go.
+      </p>
 
-        {/* Features List */}
-        <CheckList items={["Kiwi Browser", "Mises Browser"]} />
-      </div>
-
-      {/* Image of Mobile */}
-      <div class="lg:row-start-1 lg:col-start-1">
-        <SiteImage image={MobileImage} alt="Purrfect Farmer on a phone" />
-      </div>
-    </ContainerGrid>
+      {/* Features List */}
+      <CheckList items={["Kiwi Browser", "Mises Browser"]} />
+    </FeatureSection>
   );
 }

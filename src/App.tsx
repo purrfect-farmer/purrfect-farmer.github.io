@@ -1,4 +1,5 @@
-import type { Component } from "solid-js";
+import { Show, type Component } from "solid-js";
+import { IS_WHISKERS } from "./lib/client";
 import Cloud from "./partials/Cloud";
 import Download from "./partials/Download";
 import Farmers from "./partials/Farmers";
@@ -23,7 +24,9 @@ const App: Component = () => {
       <Mobile />
       <Cloud />
       <Whiskers />
-      <Download />
+      <Show when={!IS_WHISKERS}>
+        <Download />
+      </Show>
       <Footer />
     </>
   );

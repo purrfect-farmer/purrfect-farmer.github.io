@@ -1,14 +1,25 @@
 import { splitProps, type ComponentProps } from "solid-js";
-import { cn } from "@/lib/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-interface SiteImageProps extends ComponentProps<"img"> {
+/** The styles of a site image */
+export const siteImage = tv({
+  base: "h-auto max-w-full",
+  variants: {
+    framed: {
+      true: "ring-4 ring-orange-300 rounded-sm",
+    },
+  },
+});
+
+interface SiteImageProps
+  extends ComponentProps<"img">, VariantProps<typeof siteImage> {
   image: { src: string; width: number; height: number };
   alt: string;
 }
 
 /** An image with its size reserved, loaded when it nears the screen */
 export default function SiteImage(props: SiteImageProps) {
-  const [local, others] = splitProps(props, ["image", "class"]);
+  const [local, others] = splitProps(props, ["image", "framed", "class"]);
 
   return (
     <img
@@ -18,7 +29,7 @@ export default function SiteImage(props: SiteImageProps) {
       src={local.image.src}
       width={local.image.width}
       height={local.image.height}
-      class={cn("h-auto max-w-full", local.class)}
+      class={siteImage({ framed: local.framed, class: local.class })}
     />
   );
 }

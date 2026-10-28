@@ -1,6 +1,8 @@
-import { splitProps, type ComponentProps } from "solid-js";
+import type { ComponentProps } from "solid-js";
 import AppIcon from "@/assets/images/icon-unwrapped-cropped.png?format=webp&h=480&as=meta:src;width;height";
+import LinkButton from "@/components/LinkButton";
 import SiteImage from "@/components/SiteImage";
+import { section } from "@/components/Section";
 import { cn } from "@/lib/utils";
 
 import {
@@ -10,38 +12,16 @@ import {
   FaSolidCode,
 } from "solid-icons/fa";
 import { HiOutlineChatBubbleBottomCenter } from "solid-icons/hi";
-import { Dynamic } from "solid-js/web";
-import type { IconTypes } from "solid-icons";
 
-interface FooterButtonProps extends ComponentProps<"a"> {
-  icon: IconTypes;
-  class?: string;
-}
-
-const FooterButton = (props: FooterButtonProps) => {
-  const [local, others] = splitProps(props, ["icon", "class"]);
-
-  return (
-    <a
-      aria-label={others.title}
-      {...others}
-      target="_blank"
-      class={cn(
-        "bg-neutral-800",
-        "p-3 rounded-full",
-        "inline-flex items-center justify-center gap-2",
-        local.class,
-      )}
-    >
-      <Dynamic component={local.icon} class="text-orange-500 size-4" />
-    </a>
-  );
-};
+/** A round icon link in the footer */
+const FooterButton = (props: ComponentProps<typeof LinkButton>) => (
+  <LinkButton intent="dark" size="icon" aria-label={props.title} {...props} />
+);
 
 export default function Footer() {
   return (
     <div class="p-4">
-      <div class="max-w-5xl mx-auto flex flex-col gap-4">
+      <div class={section({ spaced: false, class: "gap-4" })}>
         <SiteImage image={AppIcon} alt="" class="h-28 w-auto mx-auto" />
 
         {/* Footer Buttons */}

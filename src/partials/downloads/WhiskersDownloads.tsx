@@ -1,7 +1,9 @@
+import AppleSiliconNote from "@/components/AppleSiliconNote";
 import CopyText from "@/components/CopyText";
 import DownloadCard from "@/components/DownloadCard";
-import GroupHeading from "@/components/GroupHeading";
+import DownloadGroup from "@/components/DownloadGroup";
 import useWhiskersDownloads from "@/hooks/useWhiskersDownloads";
+import { Anchor } from "@/lib/anchors";
 import { CURRENT_PLATFORM, Platform } from "@/lib/platform";
 import { DownloadKind } from "@/lib/releases";
 import { Show, createMemo } from "solid-js";
@@ -19,7 +21,7 @@ const LINUX_EXTRAS = [
 ];
 
 /** The Whiskers downloads for Windows, macOS and Linux */
-export default function WhiskersDownloads(props: { showHeading?: boolean }) {
+export default function WhiskersDownloads() {
   const whiskers = useWhiskersDownloads();
 
   /** The other Linux formats in this release */
@@ -30,53 +32,46 @@ export default function WhiskersDownloads(props: { showHeading?: boolean }) {
   );
 
   return (
-    <div class="flex flex-col gap-4 min-w-0">
-      <Show when={props.showHeading}>
-        <GroupHeading
-          title="Purrfect Whiskers"
-          description="The desktop app for running many accounts side by side."
-        />
-      </Show>
+    <DownloadGroup
+      id={Anchor.DOWNLOAD_WHISKERS}
+      title="Desktop App"
+      description="For Windows, macOS and Linux. Installs and updates the extension for you."
+    >
+      <DownloadCard
+        title="Windows"
+        icon={FaBrandsWindows}
+        href={whiskers.linkOf(DownloadKind.WINDOWS)}
+        label="Download .exe"
+        detail={whiskers.detailOf(DownloadKind.WINDOWS)}
+        recommended={CURRENT_PLATFORM === Platform.WINDOWS}
+      />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <DownloadCard
-          title="Windows"
-          icon={FaBrandsWindows}
-          href={whiskers.linkOf(DownloadKind.WINDOWS)}
-          label="Download .exe"
-          detail={whiskers.detailOf(DownloadKind.WINDOWS)}
-          recommended={CURRENT_PLATFORM === Platform.WINDOWS}
-        />
+      <DownloadCard
+        title="macOS"
+        icon={FaBrandsApple}
+        href={whiskers.linkOf(DownloadKind.MAC)}
+        label="Download .dmg"
+        detail={whiskers.detailOf(DownloadKind.MAC)}
+        recommended={CURRENT_PLATFORM === Platform.MAC}
+      >
+        <Show when={whiskers.isAppleSiliconOnly()}>
+          <AppleSiliconNote />
+        </Show>
+        <p class="text-sm">
+          If macOS won't open the app after installing, run this in Terminal:
+        </p>
+        <CopyText text={MAC_FIX_COMMAND} />
+      </DownloadCard>
 
-        <DownloadCard
-          title="macOS"
-          icon={FaBrandsApple}
-          href={whiskers.linkOf(DownloadKind.MAC)}
-          label="Download .dmg"
-          detail={whiskers.detailOf(DownloadKind.MAC)}
-          recommended={CURRENT_PLATFORM === Platform.MAC}
-        >
-          <Show when={whiskers.isAppleSiliconOnly()}>
-            <p class="text-sm text-center font-bold text-orange-800">
-              For Apple Silicon Macs (M1 or newer)
-            </p>
-          </Show>
-          <p class="text-sm">
-            If macOS won't open the app after installing, run this in Terminal:
-          </p>
-          <CopyText text={MAC_FIX_COMMAND} />
-        </DownloadCard>
-
-        <DownloadCard
-          title="Linux"
-          icon={FaBrandsLinux}
-          href={whiskers.linkOf(DownloadKind.APPIMAGE)}
-          label="Download AppImage"
-          detail={whiskers.detailOf(DownloadKind.APPIMAGE)}
-          extras={linuxExtras()}
-          recommended={CURRENT_PLATFORM === Platform.LINUX}
-        />
-      </div>
-    </div>
+      <DownloadCard
+        title="Linux"
+        icon={FaBrandsLinux}
+        href={whiskers.linkOf(DownloadKind.APPIMAGE)}
+        label="Download AppImage"
+        detail={whiskers.detailOf(DownloadKind.APPIMAGE)}
+        extras={linuxExtras()}
+        recommended={CURRENT_PLATFORM === Platform.LINUX}
+      />
+    </DownloadGroup>
   );
 }

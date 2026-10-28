@@ -1,20 +1,18 @@
-import { cn } from "@/lib/utils";
 import WhiskersImage from "@/assets/images/whiskers.png?format=webp&as=meta:src;width;height";
 import LinkButton from "@/components/LinkButton";
+import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
+import SectionIntro from "@/components/SectionIntro";
 import SiteImage from "@/components/SiteImage";
 import { HiOutlineArrowDownCircle } from "solid-icons/hi";
+import { IS_WHISKERS } from "@/lib/client";
+import { Anchor, hrefOf } from "@/lib/anchors";
+import { Show } from "solid-js";
 
 export default function Whiskers() {
   return (
-    <section class="p-10 flex flex-col gap-10">
-      <div
-        class={cn(
-          "max-w-3xl mx-auto",
-          "flex flex-col justify-center items-center gap-4",
-          "text-center",
-        )}
-      >
+    <Section>
+      <SectionIntro>
         {/* Heading */}
         <SectionHeading>Whiskers</SectionHeading>
 
@@ -27,19 +25,24 @@ export default function Whiskers() {
         </p>
 
         {/* Link to download Whiskers */}
-        <LinkButton icon={HiOutlineArrowDownCircle} href="#download">
-          Download Whiskers
-        </LinkButton>
-      </div>
+        <Show when={!IS_WHISKERS}>
+          <LinkButton
+            icon={HiOutlineArrowDownCircle}
+            href={hrefOf(Anchor.DOWNLOAD_WHISKERS)}
+          >
+            Download Whiskers
+          </LinkButton>
+        </Show>
+      </SectionIntro>
 
       {/* Image of Whiskers */}
-      <div class="max-w-5xl mx-auto">
+      <div class="px-2">
         <SiteImage
           image={WhiskersImage}
           alt="Purrfect Whiskers running many accounts side by side"
-          class="ring-4 ring-orange-300 rounded-sm"
+          framed
         />
       </div>
-    </section>
+    </Section>
   );
 }
